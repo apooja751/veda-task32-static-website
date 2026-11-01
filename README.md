@@ -114,6 +114,3 @@ Deployment screenshots are available in the `screenshorts` folder of this reposi
 
 
 
-GitHub: https://github.com/apooja751
-
-Project Repository: https://github.com/apooja751/veda-task32-static-website
