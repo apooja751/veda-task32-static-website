@@ -1,11 +1,34 @@
-
-# Pooja Thakare | Cloud & Technology Portfolio
-
-A responsive personal portfolio website showcasing my technical skills, projects, and learning journey in Cloud Computing, Linux Administration, and DevOps.
+# Task 32: Static Website Deployment on AWS S3 and CloudFront
 
 ## Project Overview
 
-This project demonstrates how to develop and deploy a static website using cloud hosting, Git-based deployment, DNS configuration, HTTPS, and CDN services.
+This project demonstrates the deployment of a responsive static portfolio website using Amazon Web Services (AWS).
+
+The website is hosted in Amazon S3 and delivered globally through Amazon CloudFront with HTTPS support and CDN caching.
+
+## Live Website
+
+**Live URL:** https://d2tdlpp3n6uukx.cloudfront.net
+
+## AWS Architecture
+
+```text
+             GitHub Repository
+             (HTML, CSS, JS)
+                    |
+                    | Manual upload
+                    v
+              Amazon S3
+           (Private Bucket)
+                    |
+                    | Origin Access Control
+                    v
+             Amazon CloudFront
+              (CDN + HTTPS)
+                    |
+                    v
+             Live Portfolio
+```
 
 ## Technologies Used
 
@@ -13,73 +36,84 @@ This project demonstrates how to develop and deploy a static website using cloud
 - CSS3
 - JavaScript
 - Git and GitHub
-- Cloudflare Pages
-- Cloudflare DNS
-- HTTPS and CDN
+- Amazon S3
+- Amazon CloudFront
+- HTTPS
 
-## Website Sections
+## AWS Configuration
 
-1. Home
-2. About Me
-3. Technical Skills
-4. Featured Projects
-5. Contact
-6. Footer
+### Amazon S3
+- Bucket name: `veda-task32-pooja-portfolio`
+- Region: Asia Pacific (Mumbai) – `ap-south-1`
+- Bucket type: General Purpose
+- Object ownership: Bucket owner enforced
+- Block all public access: Enabled
+- Server-side encryption: SSE-S3
+- Uploaded files: `index.html`, `style.css`, `script.js`
 
-## Key Features
+### Amazon CloudFront
+- Distribution name: `veda-task32-portfolio-cdn`
+- Distribution ID: `E2V2QHCOJOM0ZX`
+- Origin: Amazon S3
+- Origin access: CloudFront private bucket access (OAC)
+- Default root object: `index.html`
+- Cache configuration: Recommended S3 cache settings
+- HTTPS: Enabled through the CloudFront domain
+- AWS WAF: Not enabled
 
-- Responsive desktop and mobile design
+## Website Features
+
+- Responsive portfolio design
+- Home section
+- About section
+- Technical skills section
+- Featured projects
+- Contact section
 - Mobile navigation menu
-- Project showcase with GitHub links
-- Smooth section navigation
-- Automatic copyright year
-- Cloud-based static website hosting
-- HTTPS and CDN support through Cloudflare Pages
+- JavaScript-powered interactions
 
-## Project Structure
+## Deployment Steps
 
-```text
-veda-task32-static-website/
-│
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── screenshots/
-```
+1. Created an Amazon S3 bucket.
+2. Configured private bucket access and security settings.
+3. Uploaded the website files to S3.
+4. Created a CloudFront distribution.
+5. Connected the private S3 bucket using CloudFront access.
+6. Configured `index.html` as the default root object.
+7. Enabled HTTPS delivery through CloudFront.
+8. Tested the website on desktop and mobile viewports.
 
-## Run Locally
+## Testing and Validation
 
-1. Clone the repository:
+- Verified successful S3 file uploads.
+- Verified CloudFront distribution creation.
+- Opened the live website using HTTPS.
+- Tested website navigation.
+- Checked JavaScript execution using browser developer tools.
+- Verified responsive layout using Chrome device emulation.
+- Tested mobile hamburger navigation.
 
-```bash
-git clone https://github.com/apooja751/veda-task32-static-website.git
-```
+## Custom Domain
 
-2. Open the project folder.
+The website currently uses the default CloudFront domain. A separately owned custom domain and DNS configuration were not added because no domain was purchased for this task.
 
-3. Open `index.html` in your browser.
+## Screenshots
 
-## Deployment
-
-The website will be deployed using Cloudflare Pages with GitHub integration.
-
-Deployment URL: To be added after deployment.
-
-## Testing
-
-- Local browser testing
-- JavaScript console verification
-- Responsive mobile viewport testing
-- Navigation functionality testing
+Deployment screenshots are available in the `screenshorts` folder of this repository.
 
 ## Learning Outcomes
 
-- Static website development
-- Git and GitHub version control
-- Cloud hosting fundamentals
-- DNS and domain configuration
-- HTTPS and CDN fundamentals
-- Cloud deployment documentation
+- Learned static website hosting using Amazon S3.
+- Configured secure private S3 bucket access.
+- Learned CloudFront CDN distribution setup.
+- Configured HTTPS delivery.
+- Understood origin access control.
+- Tested responsive website deployment.
+- Practised AWS cloud hosting and deployment documentation.
 
 
+
+
+GitHub: https://github.com/apooja751
+
+Project Repository: https://github.com/apooja751/veda-task32-static-website
